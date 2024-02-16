@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Modal.css";
 
-export const Modal = ( { closeModal } ) => {
+export const Modal = ({ closeModal, onSubmit }) => {
+  const [formState, setFormState] = useState({
+    name: "",
+    class: "",
+    result: "",
+    score: "",
+    grade: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "score") {
+      const result = Number(value) > 39 ? "Passed" : "Failed";
+      const grade =
+        Number(value) >= 76
+          ? "Excellent"
+          : Number(value) > 31 && Number(value) <= 75
+          ? "Average"
+          : "Poor";
+      setFormState({ ...formState, result, grade, [name]: value });
+    } else {
+      setFormState({ ...formState, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formState);
+    onSubmit(formState);
+    closeModal();
+
+    // if (!validateForm()) return;
+
+    // onSubmit(formState);
+
+    // closeModal();
+  };
+
+  const [errors, setErrors] = useState("");
+
   return (
     <div className="relative w-full">
       <div className="flex w-full justify-center items-center font-montserrat text-[0.75remrem] font-normal gap-[0.75rem]">
@@ -18,23 +56,25 @@ export const Modal = ( { closeModal } ) => {
                   </div>
                   <div className="w-full">
                     <input
+                      name="name"
                       type="text"
                       placeholder="..."
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
+                      onChange={handleChange}
                     />
                   </div>
                 </div>
                 <div className="flex w-full flex-col items-start justify-center gap-[8px]">
-                  <div className="text-[0.75rem] leading-none">
-                    STUDENT NAME *
-                  </div>
+                  <div className="text-[0.75rem] leading-none">CLASS *</div>
                   <div className="w-full">
                     <input
+                      name="class"
                       type="text"
                       placeholder="..."
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
+                      onChange={handleChange}
                     />
                     <span className="italic">
                       Please input values between 1 & 12
@@ -42,15 +82,15 @@ export const Modal = ( { closeModal } ) => {
                   </div>
                 </div>
                 <div className="flex w-full flex-col items-start justify-center gap-[8px]">
-                  <div className="text-[0.75rem] leading-none">
-                    STUDENT NAME *
-                  </div>
+                  <div className="text-[0.75rem] leading-none">SCORE *</div>
                   <div className="w-full">
                     <input
+                      name="score"
                       type="text"
                       placeholder="..."
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
+                      onChange={handleChange}
                     />
                     <span className="italic">
                       Please input values between 0 & 100
@@ -69,7 +109,7 @@ export const Modal = ( { closeModal } ) => {
             </div>
             <div className="modal-btn-container flex items-center justify-end gap-[1.25rem] border-t border-[#D2D8E2] py-[1rem]">
               <button
-                onClick={ closeModal }
+                onClick={closeModal}
                 class="bg-white hover:bg-slate-300 text-[#2CA4D8] border border-[#2CA4D8] py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
@@ -78,6 +118,7 @@ export const Modal = ( { closeModal } ) => {
               <button
                 class="bg-[#2CA4D8] hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
+                onClick={handleSubmit}
               >
                 CONFIRM
               </button>

@@ -1,56 +1,40 @@
 "use client"; // This is a client component
+// App.js
 
 import { useState } from "react";
-
 import "./page.css";
 import Image from "next/image";
 import { Table } from "./components/Table";
 import { Modal } from "./components/Modal/Modal";
+import rows from "./data/rowsData.js"; // Importing the rows data
 
 function App() {
+  const id = 1;
   const [modalOpen, setModalOpen] = useState(false);
-  const rows = [
-    {
-      no: "1",
-      name: "asd",
-      class: "2",
-      result: "Pass",
-      score: "89",
-      grade: "A",
-    },
-    {
-      no: "2",
-      name: "def",
-      class: "3",
-      result: "Fail",
-      score: "75",
-      grade: "B",
-    },
-    {
-      no: "3",
-      name: "ghi",
-      class: "4",
-      result: "Pass",
-      score: "92",
-      grade: "A",
-    },
-    {
-      no: "4",
-      name: "jkl",
-      class: "5",
-      result: "Fail",
-      score: "68",
-      grade: "C",
-    },
-    {
-      no: "5",
-      name: "mno",
-      class: "6",
-      result: "Pass",
-      score: "85",
-      grade: "B",
-    },
-  ];
+  const [rowsData, setRowsData] = useState(rows); // Using the imported rows data
+
+  const handleDeleteRow = (targetIndex) => {
+    setRowsData(rowsData.filter((_, index) => index !== targetIndex));
+  };
+
+  const handleEditRow = (idx) => {
+    setRowToEdit(idx);
+
+    setModalOpen(true);
+  };
+
+  const handleSubmit = (newRow) => {
+    // rowToEdit === null
+    //   ? setRows([...rows, newRow])
+    //   : setRows(
+    //       rows.map((currRow, idx) => {
+    //         if (idx !== rowToEdit) return currRow;
+
+    //         return newRow;
+    //       })
+    //     );
+    setRowsData([...rows, newRow])
+  };
 
   return (
     <div className="total-container w-full flex">
@@ -71,15 +55,15 @@ function App() {
               height={20}
               className="invert"
             />
-            Add
+            <span className="font-normal">Add</span>
           </button>
         </div>
-        <div className="table-container w-full overflow-hidden rounded-md  flex items-center justify-center">
-          <div className="table-cont rouned-[10px] border border-[#00000] rounded-[10px] w-fit h-[53rem]">
-            <Table rows={rows} />
+        <div className="table-container w-full overflow-hidden rounded-md  flex items-center justify-center px-[1.5rem]">
+          <div className="table-cont rouned-[10px] border border-[#00000] rounded-[10px] w-full h-[53rem]">
+            <Table rows={rowsData} deleteRow={handleDeleteRow} />
           </div>
         </div>
-        {modalOpen && <Modal closeModal={() => setModalOpen(false)} />}
+        {modalOpen && <Modal closeModal={() => setModalOpen(false)} onSubmit ={handleSubmit} />}
       </div>
     </div>
   );
