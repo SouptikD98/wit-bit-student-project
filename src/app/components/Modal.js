@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Modal.css";
 
-export const Modal = ({ closeModal, onSubmit, rows }) => {
-  const [formState, setFormState] = useState({
+export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
+  const [formState, setFormState] = useState(defaultValue || {
     no: "",
     name: "",
     class: "",
@@ -21,10 +21,10 @@ export const Modal = ({ closeModal, onSubmit, rows }) => {
           : Number(value) > 31 && Number(value) <= 75
           ? "Average"
           : "Poor";
-      newNo = rows.length + 1;
+      newNo = rowArr.length + 1;
       setFormState({ ...formState, result, grade, [name]: value, no: newNo });
     } else {
-      newNo = rows.length + 1;
+      newNo = rowArr.length + 1;
       setFormState({ ...formState, [name]: value, no: newNo });
     }
   };
@@ -51,12 +51,6 @@ export const Modal = ({ closeModal, onSubmit, rows }) => {
     if (!validateForm()) return;
     onSubmit(formState);
     closeModal();
-
-    // if (!validateForm()) return;
-
-    // onSubmit(formState);
-
-    // closeModal();
   };
 
   const [errors, setErrors] = useState("");
@@ -84,6 +78,7 @@ export const Modal = ({ closeModal, onSubmit, rows }) => {
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
                       onChange={handleChange}
+                      value={formState.name}
                     />
                     <span className="italic">
                       {errors && errors.includes("name") && (
@@ -105,6 +100,7 @@ export const Modal = ({ closeModal, onSubmit, rows }) => {
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
                       onChange={handleChange}
+                      value={formState.class}
                     />
                     <span className="italic">
                       {errors && errors.includes("class") && (
@@ -126,6 +122,7 @@ export const Modal = ({ closeModal, onSubmit, rows }) => {
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
                       onChange={handleChange}
+                      value={formState.score}
                     />
                     <span className="italic">
                       {errors && errors.includes("score") && (

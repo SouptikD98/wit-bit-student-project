@@ -4,40 +4,49 @@
 import { useState } from "react";
 import "./page.css";
 import Image from "next/image";
-import { Table } from "./components/Table";
+import { Table } from "./components/Table"; 
 import { Modal } from "./components/Modal";
 import rows from './data/rowsData.js';
 // import { addRow } from "./data/rowsData.js";
+
 
 
 function App() {
   const id = 1;
   const [modalOpen, setModalOpen] = useState(false);
   const [rowsData, setRowsData] = useState(rows); // Using the imported rows data
+  const [rowToEdit, setRowToEdit] = useState(null);
 
   const handleDeleteRow = (targetIndex) => {
     setRowsData(rowsData.filter((_, index) => index !== targetIndex));
   };
 
-  const handleEditRow = (idx) => {
-    setRowToEdit(idx);
+  const handleEditRow = (index) => {
+    setRowToEdit(index);
 
     setModalOpen(true);
   };
 
   const handleSubmit = (newRow) => {
-    // rowToEdit === null
-    //   ? setRows([...rows, newRow])
-    //   : setRows(
-    //       rows.map((currRow, idx) => {
-    //         if (idx !== rowToEdit) return currRow;
-
-    //         return newRow;
-    //       })
-    //     );
-    setRowsData([...rows, newRow]);
-    // addRow(newRow);
+    if (rowToEdit === null) {
+      // Adding a new row
+      setRowsData([...rowsData, newRow]);
+    } else {
+      // Editing an existing row
+      setRowsData(
+        rowsData.map((currRow, index) => {
+          console.log(currRow)
+          if (index !== rowToEdit) return currRow;
+          console.log(newRow)
+          return { ...newRow, no: currRow.no };
+        })
+      );
+      setRowToEdit(null); // Reset rowToEdit after editing
+    }
+    setModalOpen(false); // Close the modal after submission
   };
+  
+  
 
   return (
     <div className="total-container w-full flex">
@@ -63,10 +72,10 @@ function App() {
         </div>
         <div className="table-container w-full overflow-hidden rounded-md  flex items-center justify-center px-[1.5rem]">
           <div className="table-cont rouned-[10px] border border-[#00000] rounded-[10px] w-full h-[53rem]">
-            <Table rows={rowsData} deleteRow={handleDeleteRow} />
+            <Table rows={rowsData} deleteRow={handleDeleteRow} editRow={handleEditRow} />
           </div>
         </div>
-        {modalOpen && <Modal closeModal={() => setModalOpen(false)} onSubmit ={handleSubmit} rows={rows} />}
+        {modalOpen && <Modal rowArr={rowsData} closeModal={() => { setModalOpen(false); setRowToEdit(null)}} onSubmit={handleSubmit} defaultValue={rowToEdit !== null && rows[rowToEdit]} />}
       </div>
     </div>
   );

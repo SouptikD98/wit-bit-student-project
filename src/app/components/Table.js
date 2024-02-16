@@ -5,7 +5,7 @@ import Image from "next/image";
 import "./Table.css";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-export const Table = ({ rows, deleteRow }) => {
+export const Table = ({ rows, deleteRow, editRow }) => {
   return (
     <div className="flex items-center justify-center w-full">
       <div className="w-full">
@@ -75,7 +75,9 @@ export const Table = ({ rows, deleteRow }) => {
                     />
                   </td>
 
-                  <td className="py-[1rem] px-[1.5rem]">
+                  <td className="py-[1rem] px-[1.5rem] hover:bg-gray-100"
+                    onClick={() => editRow(index)}
+                  >
                     <span>
                       <BsFillPencilFill />
                     </span>
