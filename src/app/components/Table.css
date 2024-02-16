@@ -1,8 +1,3 @@
-table {
-  border: 1px solid slategray;
-  /* border-collapse: collapse; */
-}
+.table-container{
 
-tr {
-  border-bottom: 1px solid slategray;  
 }

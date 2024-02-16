@@ -1,60 +1,46 @@
 import React from "react";
-import "./Table.css"
+import "./Table.css";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-export const Table = () => {
+export const Table = ({ rows }) => {
   return (
-    <div className="flex items-center justify-center">
-      <table className="w-full max-w-[69rem] h-full max-h-[54rem] rounded-[10px] font-montserrat border border-slate-400">
+    <div className="flex items-center justify-center w-full xl:w-[69rem]">
+      <table className="rounded-[10px] w-full font-montserrat overflow-hidden">
         <thead className="bg-[#F1F4F8]">
-          <tr className="border border-black border-9">
-            <th>No.</th>
-            <th>Name</th>
-            <th>Class</th>
-            <th>Result</th>
-            <th>Score</th>
-            <th>Grade</th>
+          <tr>
+            <th className="py-[8px] px-[16px]">No.</th>
+            <th className="py-[8px] px-[16px]">Name</th>
+            <th className="py-[8px] px-[16px]">Class</th>
+            <th className="py-[8px] px-[16px]">Result</th>
+            <th className="py-[8px] px-[16px]">Score</th>
+            <th className="py-[8px] px-[16px]">Grade</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr className="border border-black border-9 text-center hover:bg-[#F1F4F8]">
-            <td>1</td>
-            <td>Lorem Ipsum</td>
-            <td>5th</td>
-            <td>Passed</td>
-            <td>1</td>
-            <td>1</td>
-            <td>
-              <span>
-                <BsFillTrashFill />
-              </span>
-            </td>
-            <td>
-              <span>
-                <BsFillPencilFill />
-              </span>
-            </td>
-          </tr>
-          <tr className="border border-black text-center hover:bg-[#F1F4F8]">
-            <td>2</td>
-            <td>Lorem Ipsum</td>
-            <td>5th</td>
-            <td>Failed</td>
-            <td>1</td>
-            <td>1</td>
-            <td>
-              <span>
-                <BsFillTrashFill />
-              </span>
-            </td>
-            <td>
-              <span>
-                <BsFillPencilFill />
-              </span>
-            </td>
-          </tr>
+          {rows.map((row, index) => {
+            return (
+              <tr key={index} className="text-center hover:bg-[#F1F4F8]">
+                <td className="py-[1rem] px-[1.5rem]">{row.no}</td>
+                <td className="py-[1rem] px-[1.5rem]">{row.name}</td>
+                <td className="py-[1rem] px-[1.5rem]">{row.class}</td>
+                <td className="py-[1rem] px-[1.5rem]">{row.result}</td>
+                <td className="py-[1rem] px-[1.5rem]">{row.score}</td>
+                <td className="py-[1rem] px-[1.5rem]">{row.grade}</td>
+                <td className="py-[1rem] px-[1.5rem]">
+                  <span>
+                    <BsFillTrashFill />
+                  </span>
+                </td>
+                <td className="py-[1rem] px-[1.5rem]">
+                  <span>
+                    <BsFillPencilFill />
+                  </span>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
