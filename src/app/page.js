@@ -28,6 +28,7 @@ function App() {
   // };
   const handleDeleteRow = (targetIndex) => {
     setDeleteModalOpen(true);
+    setRowToDelete(targetIndex);
     setRowsData(rows.filter((_, idx) => idx !== targetIndex));
     
   };
