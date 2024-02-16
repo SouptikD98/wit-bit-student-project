@@ -5,8 +5,10 @@ import { useState } from "react";
 import "./page.css";
 import Image from "next/image";
 import { Table } from "./components/Table";
-import { Modal } from "./components/Modal/Modal";
-import rows from "./data/rowsData.js"; // Importing the rows data
+import { Modal } from "./components/Modal";
+import { rows } from './data/rowsData.js';
+import { addRow } from "./data/rowsData.js";
+
 
 function App() {
   const id = 1;
@@ -33,7 +35,8 @@ function App() {
     //         return newRow;
     //       })
     //     );
-    setRowsData([...rows, newRow])
+    setRowsData([...rows, newRow]);
+    addRow(newRow);
   };
 
   return (

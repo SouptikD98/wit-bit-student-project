@@ -3,6 +3,7 @@ import "./Modal.css";
 
 export const Modal = ({ closeModal, onSubmit }) => {
   const [formState, setFormState] = useState({
+    no: "",
     name: "",
     class: "",
     result: "",
@@ -11,23 +12,43 @@ export const Modal = ({ closeModal, onSubmit }) => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let newNo = 9;
     if (name === "score") {
-      const result = Number(value) > 39 ? "Passed" : "Failed";
+      const result = Number(value) > 39 ? "Pass" : "Failed";
       const grade =
         Number(value) >= 76
           ? "Excellent"
           : Number(value) > 31 && Number(value) <= 75
           ? "Average"
           : "Poor";
-      setFormState({ ...formState, result, grade, [name]: value });
+      // newNo = rows.length + 2;
+      setFormState({ ...formState, result, grade, [name]: value, no: newNo });
     } else {
-      setFormState({ ...formState, [name]: value });
+      // newNo = rows.length + 2;
+      setFormState({ ...formState, [name]: value, no: newNo });
+    }
+  };
+  const validateForm = () => {
+    if (formState.score && formState.name && formState.class) {
+      // setErrors("");
+      return true;
+    } else {
+      let errorFields = [];
+      for (const [key, value] of Object.entries(formState)) {
+        if (!value && (key == "name" || key == "class" || key == "score")) {
+          errorFields.push(key);
+        }
+      }
+      setErrors(errorFields.join(", "));
+      console.log(errors);
+      return false;
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
+    // console.log(formState);
+    if (!validateForm()) return;
     onSubmit(formState);
     closeModal();
 
@@ -63,6 +84,14 @@ export const Modal = ({ closeModal, onSubmit }) => {
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
                       onChange={handleChange}
                     />
+                    <span className="italic">
+                      {errors && errors.includes("name") && (
+                        <div className="text-red-500">{`Error: Name field cannot be left blank`}</div>
+                      )}
+                      {!errors && (
+                        <div className="italic">{` Please input values between 1 & 12`}</div>
+                      )}
+                    </span>
                   </div>
                 </div>
                 <div className="flex w-full flex-col items-start justify-center gap-[8px]">
@@ -77,7 +106,12 @@ export const Modal = ({ closeModal, onSubmit }) => {
                       onChange={handleChange}
                     />
                     <span className="italic">
-                      Please input values between 1 & 12
+                      {errors && errors.includes("class") && (
+                        <div className="text-red-500">{`Error: Name field cannot be left blank`}</div>
+                      )}
+                      {!errors && (
+                        <div className="italic">{` Please input values between 1 & 12`}</div>
+                      )}
                     </span>
                   </div>
                 </div>
@@ -93,12 +127,17 @@ export const Modal = ({ closeModal, onSubmit }) => {
                       onChange={handleChange}
                     />
                     <span className="italic">
-                      Please input values between 0 & 100
+                      {errors && errors.includes("score") && (
+                        <div className="text-red-500">{`Error: Name field cannot be left blank`}</div>
+                      )}
+                      {!errors && (
+                        <div className="italic">{` Please input values between 1 & 12`}</div>
+                      )}
                     </span>
                   </div>
                 </div>
               </div>
-              <div className="calc-result mb-[1.65rem]">
+              <div className="calc-result mb-[1rem]">
                 <div className="result-container  flex flex-col font-montserrat text-[0.75rem] font-normal gap-[8px]">
                   <div className="result-box">RESULT</div>
                   <div>{"hello world"}</div>
@@ -107,6 +146,7 @@ export const Modal = ({ closeModal, onSubmit }) => {
                 </div>
               </div>
             </div>
+
             <div className="modal-btn-container flex items-center justify-end gap-[1.25rem] border-t border-[#D2D8E2] py-[1rem]">
               <button
                 onClick={closeModal}

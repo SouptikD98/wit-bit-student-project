@@ -23,7 +23,8 @@ export const Table = ({ rows, deleteRow }) => {
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, index) => {
+            {rows?.map((row, index) => {
+              // console.log(row)
               return (
                 <tr
                   key={index}

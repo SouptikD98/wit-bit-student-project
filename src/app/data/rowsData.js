@@ -1,6 +1,6 @@
 // rowsData.js
 
-const rows = [
+let rows = [
   {
     no: "1",
     name: "asd",
@@ -43,4 +43,13 @@ const rows = [
   },
 ];
 
-export default rows;
+
+
+// rowsData.js
+
+const addRow = (newRow) => {
+  // console.log(newRow)
+  rows = [...rows, newRow];
+};
+console.log(rows)
+export { rows, addRow };
