@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Modal.css";
 
-export const Modal = ({ closeModal, onSubmit }) => {
+export const Modal = ({ closeModal, onSubmit, rows }) => {
   const [formState, setFormState] = useState({
     no: "",
     name: "",
@@ -12,7 +12,7 @@ export const Modal = ({ closeModal, onSubmit }) => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let newNo = 9;
+    let newNo;
     if (name === "score") {
       const result = Number(value) > 39 ? "Pass" : "Failed";
       const grade =
@@ -21,16 +21,16 @@ export const Modal = ({ closeModal, onSubmit }) => {
           : Number(value) > 31 && Number(value) <= 75
           ? "Average"
           : "Poor";
-      // newNo = rows.length + 2;
+      newNo = rows.length + 1;
       setFormState({ ...formState, result, grade, [name]: value, no: newNo });
     } else {
-      // newNo = rows.length + 2;
+      newNo = rows.length + 1;
       setFormState({ ...formState, [name]: value, no: newNo });
     }
   };
   const validateForm = () => {
     if (formState.score && formState.name && formState.class) {
-      // setErrors("");
+      setErrors("");
       return true;
     } else {
       let errorFields = [];
@@ -60,12 +60,13 @@ export const Modal = ({ closeModal, onSubmit }) => {
   };
 
   const [errors, setErrors] = useState("");
+  // let condition = formState.score > 39 ? "text-green" : "text-red";
 
   return (
     <div className="relative w-full">
       <div className="flex w-full justify-center items-center font-montserrat text-[0.75remrem] font-normal gap-[0.75rem]">
         <div className="modal-bg-cotainer w-full text-[#7F878A] bg-black bg-opacity-50 fixed top-0 right-0 left-0 bottom-0">
-          <div className="modal-container absolute top-0 right-0 rounded-[1.25rem] font-normal bg-white w-full h-full max-w-[30rem] max-h-[37.75rem] p-[1.5rem]">
+          <div className="modal-container absolute top-0 right-0 rounded-[1.25rem] font-normal bg-white w-full h-full max-w-[30rem] max-h-[40rem] p-[1.5rem]">
             <div className="modal-heading-container w-full font-montserrat font-bold text-[1.25rem] py-[1.25rem] text-black">
               Add Student
             </div>
@@ -140,9 +141,21 @@ export const Modal = ({ closeModal, onSubmit }) => {
               <div className="calc-result mb-[1rem]">
                 <div className="result-container  flex flex-col font-montserrat text-[0.75rem] font-normal gap-[8px]">
                   <div className="result-box">RESULT</div>
-                  <div>{"hello world"}</div>
+                  <div
+                     className={`text-white w-[3.85rem] p-[0.5rem] rounded-[1rem] ${
+                      (formState.score == '') ? '' : (formState.score > 39 ) ? "bg-green-500" : "bg-red-500"
+                      }`}
+                  >
+                    {formState.result}
+                  </div>
+
                   <div className="grade-box">GRADE</div>
-                  <div>{"hello world"}</div>
+                  <div className={`w-[3rem] font-bold p-[0.5rem] rounded-[1rem] ${
+                        (formState.score == '') ? 'text-white' : (formState.score > 39 ) ? "text-green-500" : "text-red-500"
+                      }`}
+                  >
+                    {formState.grade}
+                  </div>
                 </div>
               </div>
             </div>

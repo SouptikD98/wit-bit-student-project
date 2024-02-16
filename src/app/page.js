@@ -6,8 +6,8 @@ import "./page.css";
 import Image from "next/image";
 import { Table } from "./components/Table";
 import { Modal } from "./components/Modal";
-import { rows } from './data/rowsData.js';
-import { addRow } from "./data/rowsData.js";
+import rows from './data/rowsData.js';
+// import { addRow } from "./data/rowsData.js";
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
     //       })
     //     );
     setRowsData([...rows, newRow]);
-    addRow(newRow);
+    // addRow(newRow);
   };
 
   return (
@@ -66,7 +66,7 @@ function App() {
             <Table rows={rowsData} deleteRow={handleDeleteRow} />
           </div>
         </div>
-        {modalOpen && <Modal closeModal={() => setModalOpen(false)} onSubmit ={handleSubmit} />}
+        {modalOpen && <Modal closeModal={() => setModalOpen(false)} onSubmit ={handleSubmit} rows={rows} />}
       </div>
     </div>
   );

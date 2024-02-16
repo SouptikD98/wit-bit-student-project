@@ -47,9 +47,9 @@ let rows = [
 
 // rowsData.js
 
-const addRow = (newRow) => {
-  // console.log(newRow)
-  rows = [...rows, newRow];
-};
-console.log(rows)
-export { rows, addRow };
+// const addRow = (newRow) => {
+//   // console.log(newRow)
+//   rows = [...rows, newRow];
+// };
+// console.log(rows)
+export default rows;
