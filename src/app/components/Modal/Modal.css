@@ -1,0 +1,17 @@
+.modal-container {
+  transform: translateX(-100%) translateY(10%);
+}
+
+.input-container{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    text-align: left;
+}
+
+
+.modal-heading-container{
+  border: 1px;
+  border-bottom: solid #E4E8EE;
+}
