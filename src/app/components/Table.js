@@ -28,7 +28,7 @@ export const Table = ({ rows, deleteRow, editRow }) => {
               return (
                 <tr
                   key={index}
-                  className="text-center border-b  border-[#E4E8EE]"
+                  className="text-center border-b  border-[#E4E8EE] hover:bg-slate-200"
                 >
                   <td className="py-[1rem] px-[1.5rem]">{row.no}</td>
                   <td className="py-[1rem] px-[1.5rem]">{row.name}</td>
@@ -63,7 +63,7 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     </span>
                   </td>
                   <td
-                    className="py-[1rem] px-[1.5rem] hover:bg-gray-100"
+                    className="py-[1rem] px-[1.5rem] hover:bg-red-300"
                     onClick={() => deleteRow(index)}
                   >
                     <Image
@@ -75,7 +75,7 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     />
                   </td>
 
-                  <td className="py-[1rem] px-[1.5rem] hover:bg-gray-100"
+                  <td className="py-[1rem] px-[1.5rem] hover:bg-blue-200"
                     onClick={() => editRow(index)}
                   >
                     <span>

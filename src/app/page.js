@@ -6,6 +6,7 @@ import "./page.css";
 import Image from "next/image";
 import { Table } from "./components/Table"; 
 import { Modal } from "./components/Modal";
+import { DeleteModal } from "./components/DeleteModal"; 
 import rows from './data/rowsData.js';
 // import { addRow } from "./data/rowsData.js";
 
@@ -14,12 +15,23 @@ import rows from './data/rowsData.js';
 function App() {
   const id = 1;
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalDeleteOpen, setDeleteModalOpen] = useState(false);
   const [rowsData, setRowsData] = useState(rows); // Using the imported rows data
   const [rowToEdit, setRowToEdit] = useState(null);
+  const [rowToDelete, setRowToDelete] = useState(null);
 
+  // const handleDeleteRow = (targetIndex) => {
+  //   setDeleteModalOpen(true);    
+  //   if (true) {
+  //     setRowsData(rowsData.filter((_, index) => index !== targetIndex));
+  //   }
+  // };
   const handleDeleteRow = (targetIndex) => {
-    setRowsData(rowsData.filter((_, index) => index !== targetIndex));
+    setDeleteModalOpen(true);
+    setRowsData(rows.filter((_, idx) => idx !== targetIndex));
+    
   };
+  
 
   const handleEditRow = (index) => {
     setRowToEdit(index);
@@ -27,24 +39,28 @@ function App() {
     setModalOpen(true);
   };
 
-  const handleSubmit = (newRow) => {
-    if (rowToEdit === null) {
-      // Adding a new row
-      setRowsData([...rowsData, newRow]);
-    } else {
+  const handleSubmit = (newRow, action) => {
+    if (action === 'edit') {
       // Editing an existing row
       setRowsData(
         rowsData.map((currRow, index) => {
-          console.log(currRow)
           if (index !== rowToEdit) return currRow;
-          console.log(newRow)
           return { ...newRow, no: currRow.no };
         })
       );
       setRowToEdit(null); // Reset rowToEdit after editing
+      setModalOpen(false); // Close the modal after submission
+    } else if (action === 'delete') {
+      
+      handleDeleteRow();
+      // Perform the deletion action
+    } else {
+      // Adding a new row
+      setRowsData([...rowsData, newRow]);
+      setModalOpen(false); // Close the modal after submission
     }
-    setModalOpen(false); // Close the modal after submission
   };
+  
   
   
 
@@ -73,9 +89,12 @@ function App() {
         <div className="table-container w-full overflow-hidden rounded-md  flex items-center justify-center px-[1.5rem]">
           <div className="table-cont rouned-[10px] border border-[#00000] rounded-[10px] w-full h-[53rem]">
             <Table rows={rowsData} deleteRow={handleDeleteRow} editRow={handleEditRow} />
+            
           </div>
         </div>
-        {modalOpen && <Modal rowArr={rowsData} closeModal={() => { setModalOpen(false); setRowToEdit(null)}} onSubmit={handleSubmit} defaultValue={rowToEdit !== null && rows[rowToEdit]} />}
+        {modalOpen && <Modal rowArr={rowsData} closeModal={() => { setModalOpen(false); setRowToEdit(null) }} onSubmit={(newRow) => handleSubmit(newRow, 'add')} defaultValue={rowToEdit !== null && rows[rowToEdit]} />}
+
+        { modalDeleteOpen && <DeleteModal closeModal={() => setDeleteModalOpen(false)} onSubmit={() => handleSubmit(null, 'delete')} rows={rows} rowToDelete={rowToDelete}  />}
       </div>
     </div>
   );
