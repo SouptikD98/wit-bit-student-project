@@ -47,7 +47,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(formState);
+    console.log(formState);
     if (!validateForm()) return;
     onSubmit(formState);
     closeModal();

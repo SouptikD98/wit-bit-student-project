@@ -51,7 +51,7 @@ export const SidebarMenu = () => {
           </Link>
           <Link
             href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+            className="flex items-center justify-start gap-[1.25rem] bg-[#2CA4D8] font-bold text-[#2CA4D8] bg-opacity-10 rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
               src="/students.svg" // Path to your image
@@ -127,6 +127,28 @@ export const SidebarMenu = () => {
             />
             <p>Notifications</p>
           </Link>
+          <div className="profile-container flex flex-col mt-[5rem] md:mt-[8rem] lg:mt-[13rem] xl:mt-[17 rem]">
+            <div className="picture">
+            <Image
+              src="/Ellipse.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+              
+            </div>
+            <div className="name">
+            Andy Samberg
+            </div>
+            <div className="email font-[#7F878A] text-[12px]">
+            andy.samberg@gmail.com
+            </div>
+            <div className="button-container mt-[1rem] px-[1.5rem] py-[0.5rem] text-[12px] border border-[#2CA4D8] text-center text-[#2CA4D8] hover:bg-[#2CA4D8] hover:bg-opacity-85 hover:text-white rounded-[10px]">
+              VIEW PROFILE
+            </div>
+
+          </div>
 
         </div>
       </div>

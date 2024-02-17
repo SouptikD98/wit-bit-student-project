@@ -66,13 +66,8 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     className="lg:py-[1rem] lg:px-[1.5rem] hover:bg-red-300"
                     onClick={() => deleteRow(index)}
                   >
-                    <Image
-                      src="/delete.svg"
-                      alt="Description of the image"
-                      width={20}
-                      height={20}
-                      className=" group-hover:block"
-                    />
+                    
+                    <BsFillTrashFill />
                   </td>
 
                   <td className="py-[1rem] px-[1.5rem] hover:bg-blue-200"

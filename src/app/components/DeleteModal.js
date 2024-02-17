@@ -16,7 +16,7 @@ export const DeleteModal = ({ closeModal, onSubmit, rows, rowToDelete }) => {
             <div>
               Are you sure you want to remove the current student from the list?
             </div>
-            <div>{rows[rowToDelete].name}</div>
+            <div>{rowToDelete.name}</div>
             <div className="modal-btn-container flex items-center justify-end gap-[1.25rem] border-t border-[#D2D8E2] py-[1rem]">
               <button
                 onClick={closeModal}

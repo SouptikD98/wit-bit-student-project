@@ -32,9 +32,12 @@ function App() {
   };
 
   const handleDeleteRow = (targetIndex) => {
-    setDeleteModalOpen(true);
+    if (setDeleteModalOpen(true)) {
+      setRowsData(rows.filter((_, idx) => idx !== targetIndex));      
+    };
     setRowToDelete(targetIndex);
-    setRowsData(rows.filter((_, idx) => idx !== targetIndex));
+    // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
+    
   };
 
   const handleEditRow = (index) => {
@@ -43,26 +46,44 @@ function App() {
     setModalOpen(true);
   };
 
-  const handleSubmit = (newRow, action) => {
-    if (action === "edit") {
-      // Editing an existing row
-      setRowsData(
-        rowsData.map((currRow, index) => {
-          if (index !== rowToEdit) return currRow;
-          return { ...newRow, no: currRow.no };
-        })
-      );
-      setRowToEdit(null); // Reset rowToEdit after editing
-      setModalOpen(false); // Close the modal after submission
-    } else if (action === "delete") {
-      () => handleDeleteRow();
-      // Perform the deletion action
-    } else {
-      // Adding a new row
-      setRowsData([...rowsData, newRow]);
-      setModalOpen(false); // Close the modal after submission
-    }
+  // const handleSubmit = (newRow, action) => {
+  //   if (action === "edit") {  
+  //     // Editing an existing row
+  //     rowToEdit === null
+  //     ? setRowsData([...rows, newRow])
+  //     : setRowsData(
+  //         rows.map((currRow, idx) => {
+  //           if (idx !== rowToEdit) return currRow;
+
+  //           return {...newRow, no: currRow.no};
+  //         })
+  //       );
+  //     setRowToEdit(null); // Reset rowToEdit after editing
+  //     setModalOpen(false); // Close the modal after submission
+  //   } else if (action === "delete") {
+  //     () => handleDeleteRow();
+  //     // Perform the deletion action
+  //   } else {
+  //     // Adding a new row
+  //     // setRowsData([...rowsData, newRow]);
+  //     setModalOpen(false); // Close the modal after submission
+  //   }
+  // };
+  const handleSubmit = (newRow) => {
+    rowToEdit === null
+      ? setRowsData([...rows, newRow])
+      : setRowsData(
+          rows.map((currRow, idx) => {
+            if (idx !== rowToEdit) return currRow;
+
+            return {...newRow, no: currRow.no};
+          })
+        );
   };
+  
+  
+  
+  
 
   return (
     <div className="total-container w-full flex">
@@ -76,12 +97,12 @@ function App() {
           }
         }}
       >
-        <div className="base-layout-floating-bar bg-white absolute top-0 left-0 z-[999] items-start justify-center w-full h-full max-w-[18rem] lg:h-screen px-[1rem] py-[2.5rem]">
+        <div className="base-layout-floating-bar bg-white absolute top-0 left-0 z-[999] items-start justify-center w-full h-full max-w-[18rem] lg:h-[64rem] px-[1rem] py-[2.5rem]">
           <SidebarMenu />
         </div>
       </div>
 
-      <div className="base-layout-1 hidden lg:flex  items-start justify-center w-full max-w-[18rem] h-screen px-[1rem] py-[2.5rem]">
+      <div className="base-layout-1 hidden lg:flex  items-start justify-center w-full max-w-[18rem] h-[64rem] px-[1rem] py-[2.5rem]">
         <SidebarMenu />
       </div>
       <div className="base-layout-2 flex flex-col w-full">
@@ -140,8 +161,8 @@ function App() {
           <DeleteModal
             closeModal={() => setDeleteModalOpen(false)}
             onSubmit={() => handleSubmit(null, "delete")}
-            rows={rows}
-            rowToDelete={rowToDelete}
+            rows={rowsData}
+            rowToDelete={rowsData[rowToDelete]}
           />
         )}
       </div>

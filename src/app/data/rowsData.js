@@ -7,23 +7,23 @@ let rows = [
     class: "2",
     result: "Pass",
     score: "89",
-    grade: "A",
+    grade: "Excellent",
   },
   {
     no: "2",
     name: "def",
     class: "3",
-    result: "Fail",
+    result: "Pass",
     score: "75",
-    grade: "B",
+    grade: "Average",
   },
   {
     no: "3",
     name: "ghi",
     class: "4",
-    result: "Pass",
+    result: "Fail",
     score: "2",
-    grade: "A",
+    grade: "Poor",
   },
   {
     no: "4",
@@ -31,7 +31,7 @@ let rows = [
     class: "5",
     result: "Fail",
     score: "6",
-    grade: "C",
+    grade: "Poor",
   },
   {
     no: "5",
@@ -39,7 +39,7 @@ let rows = [
     class: "6",
     result: "Pass",
     score: "85",
-    grade: "B",
+    grade: "Excellent",
   },
 ];
 
