@@ -63,7 +63,7 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     </span>
                   </td>
                   <td
-                    className="py-[1rem] px-[1.5rem] hover:bg-red-300"
+                    className="lg:py-[1rem] lg:px-[1.5rem] hover:bg-red-300"
                     onClick={() => deleteRow(index)}
                   >
                     <Image

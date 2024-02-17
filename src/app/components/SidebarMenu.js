@@ -25,23 +25,10 @@ export const SidebarMenu = () => {
         <div className="links-container flex flex-col font-montserrat text-[1rem] mt-[2.125rem]">
           <Link
             href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/menulogo.svg" // Path to your image
-              alt="Description of tpxhe image"
-              width={35} // Desired height of the image
-              height={35}
-              className="hover:text-red-600"
-            />
-            <p>Dashboard</p>
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
-          >
-            <Image
-              src="/menulogo.svg" // Path to your image
+              src="/dashboard.svg" // Path to your image
               alt="Description of tpxhe image"
               width={35} // Desired height of the image
               height={35}
@@ -51,7 +38,7 @@ export const SidebarMenu = () => {
           </Link>
           <Link
             href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
               src="/menulogo.svg" // Path to your image
@@ -60,14 +47,14 @@ export const SidebarMenu = () => {
               height={35}
               className=""
             />
-            <p>Dashboard</p>
+            <p>Courses</p>
           </Link>
           <Link
             href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/menulogo.svg" // Path to your image
+              src="/students.svg" // Path to your image
               alt="Description of tpxhe image"
               width={35} // Desired height of the image
               height={35}
@@ -77,29 +64,68 @@ export const SidebarMenu = () => {
           </Link>
           <Link
             href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/menulogo.svg" // Path to your image
+              src="/exam.svg" // Path to your image
               alt="Description of tpxhe image"
               width={35} // Desired height of the image
               height={35}
               className=""
             />
-            <p>Dashboard</p>
+            <p>Exams</p>
           </Link>
           <Link
             href="/"
-            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/menulogo.svg" // Path to your image
+              src="/result.svg" // Path to your image
               alt="Description of tpxhe image"
               width={35} // Desired height of the image
               height={35}
               className=""
             />
-            <p>Dashboard</p>
+            <p>Results</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/black-board.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Notice Board</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/live-streaming.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Live Classes</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/notification.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Notifications</p>
           </Link>
 
         </div>
