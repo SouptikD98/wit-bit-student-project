@@ -32,10 +32,12 @@ function App() {
   };
 
   const handleDeleteRow = (targetIndex) => {
-    if (setDeleteModalOpen(true)) {
-      setRowsData(rows.filter((_, idx) => idx !== targetIndex));      
-    };
+    // if (setDeleteModalOpen(true)) {
+    //   // setRowsData(rows.filter((_, idx) => idx !== targetIndex));      
+    // };
     setRowToDelete(targetIndex);
+    
+    setDeleteModalOpen(!modalDeleteOpen);
     // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
     
   };
@@ -86,9 +88,9 @@ function App() {
   
 
   return (
-    <div className="total-container w-full flex">
+    <div className="total-container w-full h-full flex">
       <div
-        className="w-[100vh] h-[100vh] bg-black fixed bg-opacity-45"
+        className="w-full h-full bg-black fixed bg-opacity-45"
         id="close-side-bar"
         style={{ display: isMenuOpen ? "block" : "none" }}
         onClick={(e) => {
@@ -97,12 +99,12 @@ function App() {
           }
         }}
       >
-        <div className="base-layout-floating-bar bg-white absolute top-0 left-0 z-[999] items-start justify-center w-full h-full max-w-[18rem] lg:h-[64rem] px-[1rem] py-[2.5rem]">
+        <div className="base-layout-floating-bar bg-white absolute top-0 left-0 items-start justify-center w-full h-full max-w-[18rem] px-[1rem] py-[2.5rem]">
           <SidebarMenu />
         </div>
       </div>
 
-      <div className="base-layout-1 hidden lg:flex  items-start justify-center w-full max-w-[18rem] h-[64rem] px-[1rem] py-[2.5rem]">
+      <div className="base-layout-1 hidden lg:flex  items-start justify-center w-full max-w-[18rem] h-[100%] px-[1rem] py-[2.5rem]">
         <SidebarMenu />
       </div>
       <div className="base-layout-2 flex flex-col w-full">
@@ -137,7 +139,7 @@ function App() {
           </button>
         </div>
         <div className="table-container w-full rounded-md  flex items-center justify-center px-[1.5rem]">
-          <div className="table-cont rouned-[10px] border border-[#00000] overflow-auto rounded-[10px] w-full h-full lg:h-[53rem]">
+          <div className="table-cont rouned-[10px] border border-[#00000] overflow-auto rounded-[10px] w-full h-full lg:h-[100%]">
             <Table
               rows={rowsData}
               deleteRow={handleDeleteRow}
@@ -160,9 +162,10 @@ function App() {
         {modalDeleteOpen && (
           <DeleteModal
             closeModal={() => setDeleteModalOpen(false)}
+            deleteRow = {handleDeleteRow}
             onSubmit={() => handleSubmit(null, "delete")}
             rows={rowsData}
-            rowToDelete={rowsData[rowToDelete]}
+            rowToDelete={rowToDelete}
           />
         )}
       </div>

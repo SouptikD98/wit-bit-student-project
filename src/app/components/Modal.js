@@ -139,7 +139,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                 <div className="result-container  flex flex-col font-montserrat text-[0.75rem] font-normal gap-[8px]">
                   <div className="result-box">RESULT</div>
                   <div
-                     className={`text-white w-[3.85rem] p-[0.5rem] rounded-[1rem] ${
+                     className={`text-white w-[3.85rem] px-[1rem] py-[0.5rem] rounded-[1rem] ${
                       (formState.score == '') ? '' : (formState.score > 39 ) ? "bg-green-500" : "bg-red-500"
                       }`}
                   >
@@ -147,7 +147,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                   </div>
 
                   <div className="grade-box">GRADE</div>
-                  <div className={`w-[3rem] font-bold p-[0.5rem] rounded-[1rem] ${
+                  <div className={`w-[3rem] font-bold p-[0.5rem] text-center rounded-[1rem] ${
                         (formState.score == '') ? 'text-white' : (formState.score > 39 ) ? "text-green-500" : "text-red-500"
                       }`}
                   >

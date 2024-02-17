@@ -1,6 +1,6 @@
 import React from "react";
 
-import Image from "next/image";
+// import Image from "next/image";
 
 import "./Table.css";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
@@ -28,7 +28,7 @@ export const Table = ({ rows, deleteRow, editRow }) => {
               return (
                 <tr
                   key={index}
-                  className="text-center border-b  border-[#E4E8EE] hover:bg-slate-200"
+                  className="text-center border-b  border-[#E4E8EE] group hover:bg-slate-200"
                 >
                   <td className="py-[1rem] px-[1.5rem]">{row.no}</td>
                   <td className="py-[1rem] px-[1.5rem]">{row.name}</td>
@@ -63,18 +63,18 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     </span>
                   </td>
                   <td
-                    className="lg:py-[1rem] lg:px-[1.5rem] hover:bg-red-300"
+                    className="lg:py-[1rem] lg:px-[1.5rem]  hover:bg-red-300"
                     onClick={() => deleteRow(index)}
                   >
                     
-                    <BsFillTrashFill />
+                    <BsFillTrashFill className="invert group-hover:invert-0" />
                   </td>
 
-                  <td className="py-[1rem] px-[1.5rem] hover:bg-blue-200"
+                  <td className="lg:py-[1rem] lg:px-[1.5rem] hover:bg-blue-200"
                     onClick={() => editRow(index)}
                   >
                     <span>
-                      <BsFillPencilFill />
+                      <BsFillPencilFill className="invert group-hover:invert-0" />
                     </span>
                   </td>
                 </tr>
