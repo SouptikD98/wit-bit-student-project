@@ -1,28 +1,109 @@
-import React from 'react'
-import Image from 'next/image'
-
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export const SidebarMenu = () => {
   return (
     <div>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-[1rem]">
         <div className="logo-name-section pb-[2rem] border-b border-slate-300">
           <div className="flex items-center justify-center gap-[0.625rem]">
             <div className="logo-container w-[60px] h-[48px] bg-[#FFBF3F] rounded-[8px] flex items-center justify-center">
+              <Image
+                src="/logo.svg" // Path to your image
+                alt="Description of tpxhe image"
+                width={35} // Desired height of the image
+                height={35}
+                className=""
+              />
+            </div>
+            <div className="name-container font-passion leading-none text-[2rem] font-bold">
+              School Space
+            </div>
+          </div>
+        </div>
+        <div className="links-container flex flex-col font-montserrat text-[1rem] mt-[2.125rem]">
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
             <Image
-              src="/logo.svg" // Path to your image
+              src="/menulogo.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className="hover:text-red-600"
+            />
+            <p>Dashboard</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/menulogo.svg" // Path to your image
               alt="Description of tpxhe image"
               width={35} // Desired height of the image
               height={35}
               className=""
             />
-            </div>
-            <div className="name-container font-passion leading-none text-[2rem] font-bold">
-            School Space
-            </div>
-          </div>
+            <p>Dashboard</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/menulogo.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Dashboard</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/menulogo.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Student</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/menulogo.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Dashboard</p>
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
+          >
+            <Image
+              src="/menulogo.svg" // Path to your image
+              alt="Description of tpxhe image"
+              width={35} // Desired height of the image
+              height={35}
+              className=""
+            />
+            <p>Dashboard</p>
+          </Link>
+
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
