@@ -8,6 +8,7 @@ import { Table } from "./components/Table";
 import { Modal } from "./components/Modal";
 import { DeleteModal } from "./components/DeleteModal"; 
 import rows from './data/rowsData.js';
+import { SidebarMenu } from "./components/SidebarMenu";
 // import { addRow } from "./data/rowsData.js";
 
 
@@ -53,7 +54,7 @@ function App() {
       setModalOpen(false); // Close the modal after submission
     } else if (action === 'delete') {
       
-      handleDeleteRow();
+      () => handleDeleteRow();
       // Perform the deletion action
     } else {
       // Adding a new row
@@ -67,7 +68,9 @@ function App() {
 
   return (
     <div className="total-container w-full flex">
-      <div className="base-layout-1 flex w-full max-w-[18rem] h-screen"></div>
+      <div className="base-layout-1 flex items-start justify-center w-full max-w-[18rem] h-screen px-[1rem] py-[2.5rem]">
+        <SidebarMenu />
+      </div>
       <div className="base-layout-2 flex flex-col w-full">
         <div className="flex justify-between w-full px-[1.5rem] py-[2.5rem]">
           <div className="caption text-[1.125rem] font-montserrat font-bold">

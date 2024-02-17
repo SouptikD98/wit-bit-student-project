@@ -11,7 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ['Montserrat', 'sans-serif'], // Updated to 'sans-serif' from 'san serif'
-        // You can add more font families here if needed
+        passion: ['Passion One', 'sans-serif' ]
       }
     },
   },

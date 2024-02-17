@@ -19,7 +19,7 @@ export const DeleteModal = ({ closeModal, onSubmit, rows, rowToDelete }) => {
             <div>{rows[rowToDelete].name}</div>
             <div className="modal-btn-container flex items-center justify-end gap-[1.25rem] border-t border-[#D2D8E2] py-[1rem]">
               <button
-                onClick={handleSubmit}
+                onClick={closeModal}
                 className="bg-white hover:bg-slate-300 text-[#2CA4D8] border border-[#2CA4D8] py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
@@ -28,7 +28,7 @@ export const DeleteModal = ({ closeModal, onSubmit, rows, rowToDelete }) => {
               <button
                 className="bg-[#F24643] hover:bg-red-800 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
-                onClick={closeModal}
+                onClick={handleSubmit}
               >
                 REMOVE
               </button>
