@@ -139,7 +139,7 @@ function App() {
           </button>
         </div>
         <div className="table-container w-full rounded-md  flex items-center justify-center px-[1.5rem]">
-          <div className="table-cont rouned-[10px] border border-[#00000] overflow-auto rounded-[10px] w-full h-full lg:h-[100%]">
+          <div className="table-cont rouned-[10px] border border-[#00000] overflow-auto rounded-[10px] w-full h-full lg:h-[53rem]">
             <Table
               rows={rowsData}
               deleteRow={handleDeleteRow}

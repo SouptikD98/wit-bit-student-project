@@ -9,7 +9,7 @@ export const Table = ({ rows, deleteRow, editRow }) => {
   return (
     <div className="flex items-center justify-center w-full">
       <div className="w-full">
-        <table className="rounded-[10px] w-full font-montserrat  overflow-hidden">
+        <table className="rounded-[10px] w-full font-montserrat overflow-auto lg:overflow-hidden">
           <thead className="bg-[#F1F4F8] w-full">
             <tr>
               <th className="py-[8px] px-[16px]">No.</th>
@@ -63,18 +63,18 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     </span>
                   </td>
                   <td
-                    className="lg:py-[1rem] lg:px-[1.5rem]  hover:bg-red-300"
+                    className="py-[1rem] px-[1.5rem]  hover:bg-red-300"
                     onClick={() => deleteRow(index)}
                   >
                     
-                    <BsFillTrashFill className="invert group-hover:invert-0" />
+                    <BsFillTrashFill className="lg:invert lg:group-hover:invert-0" />
                   </td>
 
-                  <td className="lg:py-[1rem] lg:px-[1.5rem] hover:bg-blue-200"
+                  <td className="py-[1rem] px-[1.5rem] hover:bg-blue-200"
                     onClick={() => editRow(index)}
                   >
                     <span>
-                      <BsFillPencilFill className="invert group-hover:invert-0" />
+                      <BsFillPencilFill className="lg:invert lg:group-hover:invert-0" />
                     </span>
                   </td>
                 </tr>
