@@ -11,7 +11,7 @@ export const DeleteModal = ({
     console.log("hello wro");
     e.preventDefault();
     // Perform the deletion action using onSubmit prop
-    // onSubmit(rowToDelete);
+    onSubmit(rowToDelete);
     // Close the modal
     // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
     closeModal();

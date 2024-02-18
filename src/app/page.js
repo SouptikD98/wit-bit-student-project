@@ -31,11 +31,14 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleDeleteRow = (targetIndex) => {
+  const handleDeleteRow = (targetIndex, e) => {
     // if (setDeleteModalOpen(true)) {
     //   // setRowsData(rows.filter((_, idx) => idx !== targetIndex));      
     // };
+    // e.preventDefault()
     setRowToDelete(targetIndex);
+    // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
+
     
     setDeleteModalOpen(!modalDeleteOpen);
     // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
@@ -71,16 +74,28 @@ function App() {
   //     setModalOpen(false); // Close the modal after submission
   //   }
   // };
-  const handleSubmit = (newRow) => {
-    rowToEdit === null
+  const handleSubmit = (newRow, flag) => {
+    console.log(flag)
+    console.log(rowToEdit)
+    console.log(rowToDelete)
+
+    if (flag === "delete") {
+        setRowsData(rows.filter((_, idx) => idx !== rowToDelete));
+    }
+    else {
+      rowToEdit === null
       ? setRowsData([...rows, newRow])
       : setRowsData(
-          rows.map((currRow, idx) => {
+        rows.map((currRow, idx) => {
+          console.log(currRow)
             if (idx !== rowToEdit) return currRow;
 
             return {...newRow, no: currRow.no};
           })
         );
+      
+    }
+
   };
   
   

@@ -63,19 +63,18 @@ export const Table = ({ rows, deleteRow, editRow }) => {
                     </span>
                   </td>
                   <td
-                    className="py-[1rem] px-[1.5rem]  hover:bg-red-300"
-                    onClick={() => deleteRow(index)}
-                  >
-                    
-                    <BsFillTrashFill className="lg:invert lg:group-hover:invert-0" />
-                  </td>
-
-                  <td className="py-[1rem] px-[1.5rem] hover:bg-blue-200"
+                    className="py-[1rem] px-[1.5rem] hover:bg-blue-200"
                     onClick={() => editRow(index)}
                   >
                     <span>
                       <BsFillPencilFill className="lg:invert lg:group-hover:invert-0" />
                     </span>
+                  </td>
+                  <td
+                    className="py-[1rem] px-[1.5rem]  hover:bg-red-300"
+                    onClick={() => deleteRow(index)}
+                  >
+                    <BsFillTrashFill className="lg:invert lg:group-hover:invert-0" />
                   </td>
                 </tr>
               );

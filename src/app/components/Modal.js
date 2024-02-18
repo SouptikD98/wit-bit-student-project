@@ -14,7 +14,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
     const { name, value } = e.target;
     let newNo;
     if (name === "score") {
-      const result = Number(value) > 39 ? "Pass" : "Failed";
+      const result = Number(value) > 39 ? "Pass" : "Fail";
       const grade =
         Number(value) >= 76
           ? "Excellent"
@@ -29,13 +29,13 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
     }
   };
   const validateForm = () => {
-    if (formState.score && formState.name && formState.class) {
+    if (formState.score && formState.name && formState.class && (formState.class < 12)) {
       setErrors("");
       return true;
     } else {
       let errorFields = [];
       for (const [key, value] of Object.entries(formState)) {
-        if (!value && (key == "name" || key == "class" || key == "score")) {
+        if ((!value && (key == "name" || key == "class" || key == "score")) || (key == "class" && value<12)) {
           errorFields.push(key);
         }
       }
@@ -47,7 +47,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     if (!validateForm()) return;
     onSubmit(formState);
     closeModal();
@@ -95,7 +95,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                   <div className="w-full">
                     <input
                       name="class"
-                      type="text"
+                      type="number"
                       placeholder="..."
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
@@ -117,7 +117,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                   <div className="w-full">
                     <input
                       name="score"
-                      type="text"
+                      type="number"
                       placeholder="..."
                       className="w-full font-montserrat py-[0.625rem] px-[0.875rem]
                   border border-[#D2D8E2] rounded-[10px] z-[99]"
