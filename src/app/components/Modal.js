@@ -60,7 +60,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
     <div className="relative w-full">
       <div className="flex w-full justify-center items-center font-montserrat text-[0.75remrem] font-normal gap-[0.75rem]">
         <div className="modal-bg-cotainer w-full text-[#7F878A] bg-black bg-opacity-50 fixed top-0 right-0 left-0 bottom-0">
-          <div className="modal-container absolute top-0 right-0 rounded-[1.25rem] font-normal bg-white w-full h-full max-w-[30rem] max-h-[40rem] p-[1.5rem]">
+          <div className="modal-container absolute top-0 right-0 md:translate-x-[-50%] xl:translate-x-[-100%] translate-y-40 md:translate-y-20 rounded-[1.25rem] font-normal bg-white w-full h-full max-w-[30rem] max-h-[40rem] p-[1.5rem]">
             <div className="modal-heading-container w-full font-montserrat font-bold text-[1.25rem] py-[1.25rem] text-black">
               Add Student
             </div>
@@ -147,7 +147,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                   </div>
 
                   <div className="grade-box">GRADE</div>
-                  <div className={`w-[3rem] font-bold p-[0.5rem] text-center rounded-[1rem] ${
+                  <div className={`w-[3rem] font-bold sm:p-[0.5rem] text-center rounded-[1rem] ${
                         (formState.score == '') ? 'text-white' : (formState.score > 39 ) ? "text-green-500" : "text-red-500"
                       }`}
                   >
@@ -157,7 +157,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
               </div>
             </div>
 
-            <div className="modal-btn-container flex items-center justify-end gap-[1.25rem] border-t border-[#D2D8E2] py-[1rem]">
+            <div className="modal-btn-container flex items-center justify-end gap-[1.25rem] border-t border-[#D2D8E2] pt-[1rem] sm:py-[1rem]">
               <button
                 onClick={closeModal}
                 class="bg-white hover:bg-slate-300 text-[#2CA4D8] border border-[#2CA4D8] py-2 px-4 rounded focus:outline-none focus:shadow-outline"
