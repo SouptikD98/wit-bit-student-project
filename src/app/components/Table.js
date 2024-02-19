@@ -1,7 +1,5 @@
 import React from "react";
 
-// import Image from "next/image";
-
 import "./Table.css";
 import { BsFillTrashFill, BsFillPencilFill } from "react-icons/bs";
 

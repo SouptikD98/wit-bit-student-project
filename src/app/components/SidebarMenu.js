@@ -10,9 +10,9 @@ export const SidebarMenu = () => {
           <div className="flex items-center justify-center gap-[0.625rem]">
             <div className="logo-container w-[60px] h-[48px] bg-[#FFBF3F] rounded-[8px] flex items-center justify-center">
               <Image
-                src="/logo.svg" // Path to your image
+                src="/logo.svg" 
                 alt="Description of tpxhe image"
-                width={35} // Desired height of the image
+                width={35} 
                 height={35}
                 className=""
               />
@@ -28,9 +28,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/dashboard.svg" // Path to your image
+              src="/dashboard.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -41,9 +41,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/menulogo.svg" // Path to your image
+              src="/menulogo.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -54,9 +54,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] bg-[#2CA4D8] font-bold text-[#2CA4D8] bg-opacity-10 rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/students.svg" // Path to your image
+              src="/students.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -67,9 +67,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/exam.svg" // Path to your image
+              src="/exam.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -80,9 +80,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/result.svg" // Path to your image
+              src="/result.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -93,9 +93,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/black-board.svg" // Path to your image
+              src="/black-board.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -106,9 +106,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/live-streaming.svg" // Path to your image
+              src="/live-streaming.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -119,9 +119,9 @@ export const SidebarMenu = () => {
             className="flex items-center justify-start gap-[1.25rem] hover:bg-[#2CA4D8] hover:font-bold hover:text-[#2CA4D8] hover:bg-opacity-10 hover:rounded-[10px] px-[.85rem] py-[11px]"
           >
             <Image
-              src="/notification.svg" // Path to your image
+              src="/notification.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
@@ -130,9 +130,9 @@ export const SidebarMenu = () => {
           <div className="profile-container flex flex-col mt-[5rem] md:mt-[8rem] lg:mt-[13rem] xl:mt-[17 rem]">
             <div className="picture">
             <Image
-              src="/Ellipse.svg" // Path to your image
+              src="/Ellipse.svg" 
               alt="Description of tpxhe image"
-              width={35} // Desired height of the image
+              width={35} 
               height={35}
               className=""
             />
