@@ -10,9 +10,8 @@ export const DeleteModal = ({
   const handleSubmit = (e) => {
     console.log("hello wro");
     e.preventDefault();
-    // Perform the deletion action using onSubmit prop
     onSubmit(rowToDelete);
-    // Close the modal
+    
     // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
     closeModal();
   };

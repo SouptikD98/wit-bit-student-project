@@ -54,7 +54,6 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
   };
 
   const [errors, setErrors] = useState("");
-  // let condition = formState.score > 39 ? "text-green" : "text-red";
 
   return (
     <div className="relative w-full">
@@ -168,7 +167,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
               <button
                 class="bg-[#2CA4D8] hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
-                onClick={handleSubmit}
+                onClick={(e) => handleSubmit(e)}
               >
                 CONFIRM
               </button>

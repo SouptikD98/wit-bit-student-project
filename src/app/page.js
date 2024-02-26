@@ -19,30 +19,13 @@ function App() {
   const [rowToEdit, setRowToEdit] = useState(null);
   const [rowToDelete, setRowToDelete] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // const handleDeleteRow = (targetIndex) => {
-  //   setDeleteModalOpen(true);
-  //   if (true) {
-  //     setRowsData(rowsData.filter((_, index) => index !== targetIndex));
-  //   }
-  // };
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleDeleteRow = (targetIndex, e) => {
-    // if (setDeleteModalOpen(true)) {
-    //   // setRowsData(rows.filter((_, idx) => idx !== targetIndex));      
-    // };
-    // e.preventDefault()
-    setRowToDelete(targetIndex);
-    // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
-
-    
-    setDeleteModalOpen(!modalDeleteOpen);
-    // setRowsData(rows.filter((_, idx) => idx !== targetIndex));
-    
+    setRowToDelete(targetIndex);    
+    setDeleteModalOpen(!modalDeleteOpen);    
   };
 
   const handleEditRow = (index) => {
@@ -51,40 +34,19 @@ function App() {
     setModalOpen(true);
   };
 
-  // const handleSubmit = (newRow, action) => {
-  //   if (action === "edit") {  
-  //     // Editing an existing row
-  //     rowToEdit === null
-  //     ? setRowsData([...rows, newRow])
-  //     : setRowsData(
-  //         rows.map((currRow, idx) => {
-  //           if (idx !== rowToEdit) return currRow;
 
-  //           return {...newRow, no: currRow.no};
-  //         })
-  //       );
-  //     setRowToEdit(null); // Reset rowToEdit after editing
-  //     setModalOpen(false); // Close the modal after submission
-  //   } else if (action === "delete") {
-  //     () => handleDeleteRow();
-  //     // Perform the deletion action
-  //   } else {
-  //     // Adding a new row
-  //     // setRowsData([...rowsData, newRow]);
-  //     setModalOpen(false); // Close the modal after submission
-  //   }
-  // };
-  const handleSubmit = (newRow, flag) => {
+  const handleSubmit = (newRow, flag, e) => {  
+    // e.preventDefault();
     console.log(flag)
     console.log(rowToEdit)
-    console.log(rowToDelete)
 
     if (flag === "delete") {
         setRowsData(rows.filter((_, idx) => idx !== rowToDelete));
     }
-    else {
+    else if (flag === "edit") {
+      console.log(rowToEdit)
       rowToEdit === null
-      ? setRowsData([...rows, newRow])
+        ?setRowsData((prev) => [...prev, newRow])
       : setRowsData(
         rows.map((currRow, idx) => {
           console.log(currRow)
@@ -93,9 +55,7 @@ function App() {
             return {...newRow, no: currRow.no};
           })
         );
-      
-    }
-
+    } 
   };
   
   
@@ -129,9 +89,9 @@ function App() {
             onClick={toggleMenu}
           >
             <Image
-              src="/hamburger.svg" // Path to your image
+              src="/hamburger.svg" 
               alt="Description of the image"
-              width={100} // Desired height of the image
+              width={100} 
               height={100}
               className=""
             />
@@ -144,9 +104,9 @@ function App() {
             onClick={() => setModalOpen(true)}
           >
             <Image
-              src="/plusicon.svg" // Path to your image
-              alt="Description of the image"
-              width={20} // Desired height of the image
+              src="/plusicon.svg"  
+              alt="Description"
+              width={20} 
               height={20}
               className="invert"
             />
@@ -169,7 +129,7 @@ function App() {
               setModalOpen(false);
               setRowToEdit(null);
             }}
-            onSubmit={(newRow) => handleSubmit(newRow, "add")}
+            onSubmit={(newRow) => handleSubmit(newRow, "edit")}
             defaultValue={rowToEdit !== null && rows[rowToEdit]}
           />
         )}
