@@ -29,13 +29,20 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
     }
   };
   const validateForm = () => {
-    if (formState.score && formState.name && formState.class && (formState.class < 12)) {
+    if (formState.score && formState.name && formState.class && (formState.class < 12) && (formState.score <101)) {
       setErrors("");
       return true;
     } else {
       let errorFields = [];
       for (const [key, value] of Object.entries(formState)) {
-        if ((!value && (key == "name" || key == "class" || key == "score")) || (key == "class" && value<12)) {
+        if (!value && (key == "name" || key == "class" || key == "score")) {
+          errorFields.push(key);
+        }
+           
+        if (key === "class" && value !== "" && value >= 12) {   
+          errorFields.push(key);
+        }
+        if (key === "score" && value !== "" && value > 100) {   
           errorFields.push(key);
         }
       }
@@ -103,7 +110,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                     />
                     <span className="italic">
                       {errors && errors.includes("class") && (
-                        <div className="text-red-500">{`Error: Name field cannot be left blank`}</div>
+                        <div className="text-red-500">{`Error: Class field cannot be left blank or out of range(1-12) `}</div>
                       )}
                       {!errors && (
                         <div className="italic">{` Please input values between 1 & 12`}</div>
@@ -125,7 +132,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
                     />
                     <span className="italic">
                       {errors && errors.includes("score") && (
-                        <div className="text-red-500">{`Error: Name field cannot be left blank`}</div>
+                        <div className="text-red-500">{`Error: Score field cannot be left blank or above marked 100`}</div>
                       )}
                       {!errors && (
                         <div className="italic">{` Please input values between 1 & 12`}</div>
