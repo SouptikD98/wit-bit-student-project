@@ -41,7 +41,7 @@ function App() {
     console.log(rowToEdit)
 
     if (flag === "delete") {
-        setRowsData(rows.filter((_, idx) => idx !== rowToDelete));
+        setRowsData(rowsData.filter((_, idx) => idx !== rowToDelete));
     }
     else if (flag === "edit") {
       console.log(rowToEdit)
@@ -130,7 +130,7 @@ function App() {
               setRowToEdit(null);
             }}
             onSubmit={(newRow) => handleSubmit(newRow, "edit")}
-            defaultValue={rowToEdit !== null && rows[rowToEdit]}
+            defaultValue={rowToEdit !== null && rowsData[rowToEdit]}
           />
         )}
 
