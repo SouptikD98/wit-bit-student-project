@@ -48,7 +48,7 @@ function App() {
       rowToEdit === null
         ?setRowsData((rowsData) => [...rowsData, newRow])
       : setRowsData(
-        rows.map((currRow, idx) => {
+        rowsData.map((currRow, idx) => {
           console.log(currRow)
             if (idx !== rowToEdit) return currRow;
 
