@@ -41,7 +41,7 @@ function App() {
     console.log(rowToEdit)
 
     if (flag === "delete") {
-        setRowsData(rows.filter((_, idx) => idx !== rowToDelete));
+        setRowsData(rowsData.filter((_, idx) => idx !== rowToDelete));
     }
     else if (flag === "edit") {
       console.log(rowToEdit)
