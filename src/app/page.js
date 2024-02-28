@@ -130,7 +130,7 @@ function App() {
               setRowToEdit(null);
             }}
             onSubmit={(newRow) => handleSubmit(newRow, "edit")}
-            defaultValue={rowToEdit !== null && rows[rowToEdit]}
+            defaultValue={rowToEdit !== null && rowsData[rowToEdit]}
           />
         )}
 
