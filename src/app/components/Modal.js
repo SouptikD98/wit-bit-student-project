@@ -29,7 +29,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
     }
   };
   const validateForm = () => {
-    if (formState.score && formState.name && formState.class && (formState.class < 12) && (formState.score <101)) {
+    if (formState.score && formState.name && formState.class && (formState.class <= 12) && (formState.score <101)) {
       setErrors("");
       return true;
     } else {
@@ -39,7 +39,7 @@ export const Modal = ({ closeModal, onSubmit, rowArr, defaultValue }) => {
           errorFields.push(key);
         }
            
-        if (key === "class" && value !== "" && value >= 12) {   
+        if (key === "class" && value !== "" && value > 12) {   
           errorFields.push(key);
         }
         if (key === "score" && value !== "" && value > 100) {   
